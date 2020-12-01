@@ -2,32 +2,33 @@
 domain: example.com
 port:                 # default 12580
 
-# source definition file
+# source list file
 source-files:
- # use local file
- - ./config/source.yaml
- # use web file
- - https://raw.githubusercontent.com/Alex950808/proxypool038/master/config/source.yaml
- - https://raw.githubusercontent.com/wishcaiji/proxypool/master/config/source.yaml
- - https://raw.githubusercontent.com/money-fly/proxypool/master/config/source.yaml
+  # use web file
+  - https://raw.githubusercontent.com/money-fly/proxypool/master/config/source.yaml
+  - https://raw.githubusercontent.com/grxp/proxypool/master/config/source.yaml
+  - https://raw.githubusercontent.com/Alex950808/proxypool038/master/config/source.yaml
+  - https://raw.githubusercontent.com/wishcaiji/proxypool/master/config/source.yaml
+  
+# ======= 可选项，留空使用default值  =======
 
-
-# (optinal) postgresql database info
+# postgresql database info
 database_url: ""
 
-# interval between each execution
-cron-interval:        # default 60 min
+# interval between each crawling
+cron-interval:        #  v0.5.x default 60 (minutes)
+crontime:             #  v0.4.x default 60 (minutes). Deprecated in the newiest version
 
-# speedtest
-speedtest: false      # default false. Warning: this will consume large network resources.
-speedtest-interval:   # default 12 hours
-connection:           # default 5.
+# speed test
+speedtest: true       # default false. Warning: this will consume large network resources.
+speedtest-interval:   # default 12 (hours)
+connection:           # default 5. The number of speed test connections simultaneously
 timeout:              # default 10 (seconds).
 
 # active proxy check
-active-interval:      # default 1h
-active-frequency:     # default 100/h
+active-interval:      # default 1 (hour)
+active-frequency:     # default 100 (requests per hour)
 
-# (optinal) cloudflare api
+# cloudflare api
 cf_email: ""
 cf_key: ""
